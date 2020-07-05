@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "42b3213a-b82f-4eae-93e7-dd67dcf3a03d",
+		"name": "authz_development",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authorization",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "crodriguez@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth"
+					]
+				},
+				"description": "Autenticacion de Authz"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
