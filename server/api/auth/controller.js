@@ -1,5 +1,4 @@
 import db from '../../models'
-
 import { Sequelize } from '../../models'
 import * as bcrypt from 'bcryptjs'
 import * as jwt from 'jsonwebtoken'
@@ -10,6 +9,7 @@ const config = require('../../config').config
 class AuthController {
   static Login(req, res) {
     const { body } = req
+    console.log(db.User);
     db.User.findOne({
         where: {
           email: body.email

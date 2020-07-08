@@ -35,6 +35,11 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
+    active: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      default: false
+    },
     createdAt: {
       type: DataTypes.DATE,
     },

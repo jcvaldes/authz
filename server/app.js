@@ -5,6 +5,7 @@ import morgan from 'morgan'
 import path from 'path'
 import db from './models'
 import apiRoutes from './api/api.routes'
+import { futimesSync } from 'fs'
 const dotenv = require('dotenv').config({ path: path.join(__dirname, './', '/.env') }).parsed
 
 const app = express()
@@ -22,8 +23,8 @@ app.use(cors())
 if(node_env === 'development') {
     morgan(':method :url :status :res[content-length] - :response-time ms')
 }
-
 app.use('/api', apiRoutes)
+
 
 app.get('/', (req, res) => {
     res.send('API!')
