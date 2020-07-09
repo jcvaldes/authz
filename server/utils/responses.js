@@ -42,5 +42,9 @@ module.exports = {
   DELETE_SUCCESS: {
     ok: true,
     message: 'El registro ha sido eliminado.'
+  },
+  UPDATE_SUCCESS: {
+    ok: true,
+    message: 'El registro ha sido actualizado.'
   }
 };

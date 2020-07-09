@@ -55,5 +55,52 @@ class UsersController {
           .json({ message: RESPONSES.DB_CONNECTION_ERROR.message + err })
       })
   }
+  static Update(req, res) {
+    const body = req.body
+    const id = +req.params.id
+    db.User.update(body, {
+        where: {
+          id,
+        }
+      }).then((userUpdated) => {
+        if (userUpdated === 0) {
+          return res.status(404).json({
+            ok: false,
+            err: RESPONSES.RECORD_NOT_FOUND_ERROR.message,
+          });
+        }
+        res.status(201).json({
+          ok: true,
+          description: RESPONSES.UPDATE_SUCCESS.message,
+        })
+      })
+      .catch(err => {
+        res.status(400).json({ description: RESPONSES.DB_CONNECTION_ERROR + err })
+      })
+  }
+  static Delete(req, res) {
+    const id = +req.params.id
+    db.User.destroy({
+        where: {
+          id,
+        }
+      }).then((data) => {
+        if (data === 0) {
+          return res.status(404).json({
+            ok: false,
+            err: RESPONSES.RECORD_NOT_FOUND_ERROR.message,
+          });
+        }
+        res.status(200).json({
+          ok: true,
+          description: RESPONSES.DELETE_SUCCESS.message,
+        })
+      }).catch(db.Sequelize.ValidationError, msg => res.status(422).json({
+        message: msg.errors[0].message,
+      }))
+      .catch(err => {
+        res.status(400).json({ description: RESPONSES.DB_CONNECTION_ERROR + err })
+      })
+  }
 }
 export default UsersController
