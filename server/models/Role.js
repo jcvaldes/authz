@@ -1,0 +1,34 @@
+export default (sequelize, DataTypes) => {
+  const Role = sequelize.define('Role', {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true      
+    },
+    name: {
+      type: DataTypes.STRING(50),
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING(30),
+      allowNull: false
+    },
+    active: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      default: false
+    },
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    updatedAt: {
+      allowNull: true,
+      type: DataTypes.DATE,
+    }
+  });
+  Role.associate = (models) => {
+
+  };
+  return Role;
+};
