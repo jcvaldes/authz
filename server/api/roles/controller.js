@@ -69,8 +69,8 @@ class RolesController {
         id,
       },
     })
-      .then((roleUpdated) => {
-        if (roleUpdated === 0) {
+      .then((result) => {
+        if (result === 0) {
           return res.status(404).json({
             ok: false,
             err: RESPONSES.RECORD_NOT_FOUND_ERROR.message,
