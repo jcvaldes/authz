@@ -33,9 +33,11 @@ class AuthController {
         // expira en 4hs
         user.password = ':P'
         const token = jwt.sign({ user: user }, config.authJwtSecret, { expiresIn: 14400 })
+        const { roles } = user; 
         res.status(200).json({
           ok: true,
-          user: user,
+          user,
+          roles,
           token,
           id: user.id
         })
