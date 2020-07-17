@@ -10,6 +10,7 @@ import { UserDetailComponent } from './components/users/user-detail/user-detail.
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthModule } from './auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,9 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
+    AuthModule,
     AppRoutingModule,
-    AuthModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

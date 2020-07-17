@@ -13,7 +13,7 @@ const routes: Routes = [
       { path: 'list', component: UserListComponent}
     ]
   },
-  // { path: '', pathMatch: 'full', redirectTo: 'home'}
+  { path: '', pathMatch: 'full', redirectTo: 'home'}
   // { path: 'users' component: UserListComponent}
 ];
 
