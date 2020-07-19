@@ -1,0 +1,25 @@
+<div class="row animated fadeIn faster">
+  <div class="col">
+    <form [formGroupName]="form" (onSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text"
+                 class="form-control"
+                 formControlName="name"
+                 placeholder="Nombre de rol"
+        >
+        <small class="form-text text-muted">Este es un campo autogenerado</small>
+      </div>
+      <div class="form-group">
+        <label>Descripcion</label>
+        <input type="text"
+                 class="form-control"
+                 formControlName="description"
+                 placeholder="Descripcion del rol"
+        >
+        <small class="form-text text-muted">Este es un campo autogenerado</small>
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </div>
+</div>

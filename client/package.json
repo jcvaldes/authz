@@ -27,6 +27,7 @@
     "ngx-mat-select-search": "3.0.1",
     "ngx-material-timepicker": "5.5.3",
     "rxjs": "6.5.5",
+    "sweetalert2": "9.17.0",
     "tslib": "2.0.0",
     "zone.js": "0.10.3"
   },

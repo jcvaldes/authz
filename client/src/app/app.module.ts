@@ -10,6 +10,7 @@ import { UserDetailComponent } from './components/users/user-detail/user-detail.
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthModule } from './auth/auth.module';
+import { RolesModule } from './pages/admin/roles/roles.module';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -19,11 +20,12 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HomeComponent,
     UserDetailComponent,
-    UserListComponent
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
     AuthModule,
+    RolesModule,
     AppRoutingModule,
     HttpClientModule
   ],
