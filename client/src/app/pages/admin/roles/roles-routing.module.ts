@@ -8,7 +8,6 @@ const routes: Routes = [{
   path: 'roles', component: RolesComponent,
   children: [
     { path: 'list', component: RoleListComponent },
-    { path: 'new', component: RoleDetailComponent },
     { path: ':id', component: RoleDetailComponent },
   ]
 }];
