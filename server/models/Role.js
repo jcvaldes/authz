@@ -16,7 +16,7 @@ export default (sequelize, DataTypes) => {
     active: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      default: false
+      defaultValue: false
     },
     createdAt: {
       allowNull: false,

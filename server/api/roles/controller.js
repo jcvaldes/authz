@@ -50,7 +50,7 @@ class RolesController {
   }
   static Create(req, res) {
     const body = req.body
-    const active = true
+
     db.Role.create(body)
       .then((role) => {
         res.status(200).json(role)

@@ -6,12 +6,14 @@ import { RolesRoutingModule } from './roles-routing.module';
 import { RoleDetailComponent } from './role-detail/role-detail.component';
 import { RoleListComponent } from './role-list/role-list.component';
 import { RolesComponent } from './roles.component';
+import { RoleTableComponent } from './role-table/role-table.component';
 
 @NgModule({
   declarations: [
     RolesComponent,
     RoleDetailComponent,
-    RoleListComponent
+    RoleListComponent,
+    RoleTableComponent
   ],
   imports: [
     CommonModule,

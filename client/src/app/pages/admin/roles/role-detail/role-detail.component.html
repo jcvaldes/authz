@@ -1,6 +1,7 @@
 <div class="row animated fadeIn faster">
   <div class="col">
-    <form [formGroupName]="form" (onSubmit)="onSubmit()">
+    <h2 class="title">{{ title }}</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label>Nombre</label>
         <input type="text"

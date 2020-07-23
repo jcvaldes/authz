@@ -1,5 +1,5 @@
 import { environment } from './../../../../../environments/environment';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, Input, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpService } from '../../../../services/http.service';
 import { Subject, Subscription } from 'rxjs';
@@ -11,9 +11,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./role-detail.component.scss']
 })
 export class RoleDetailComponent implements OnInit, OnDestroy {
+  @Input() title: string;
+  @Output() roleSubmited = new EventEmitter();
   form: FormGroup;
-  url = `${environment.apiUrl}/role`;
+  url = `${environment.apiUrl}/api/role`;
   roleSubs: Subscription;
+
   constructor(private httpService: HttpService ){}
 
   ngOnInit(): void {
@@ -28,9 +31,14 @@ export class RoleDetailComponent implements OnInit, OnDestroy {
       description: new FormControl(null),
     });
   }
+  onClear(): void {
+    this.form.reset();
+  }
   onSubmit(): void {
     const payload = this.form.value;
     this.roleSubs = this.httpService.post(this.url, payload).subscribe(resp => {
+      this.onClear();
+      this.roleSubmited.emit(resp);
       Swal.fire('Atención', 'El rol ha sido creado', 'success');
     });
   }
