@@ -13,6 +13,7 @@ class RolesController {
     ]
     db.Role.findAll({
       attributes: attrs,
+      order: [['id']]
     })
       .then((data) => {
         res.status(200).json(data)

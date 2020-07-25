@@ -16,7 +16,7 @@
         </tr>
       </tbody>
     </table> -->
-    <app-role-table></app-role-table>
+    <app-role-table #roleDetail (roleEdited)="handleRoleEdited($event)"></app-role-table>
   </div>
   <div class="col-4">
     <app-role-detail #roleTable [title]="titulos.titulo1" (roleSubmited)="roleSubmited($event)"></app-role-detail>
