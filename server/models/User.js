@@ -19,6 +19,7 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       lowercase: true,
+      trim: true,
       validate: {
         isEmail: true
       },

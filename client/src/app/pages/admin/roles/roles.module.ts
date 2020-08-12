@@ -19,7 +19,7 @@ import { RoleTableComponent } from './role-table/role-table.component';
     CommonModule,
     RolesRoutingModule,
     ReactiveFormsModule,
-    RouterModule,
+    RouterModule, 
   ],
 })
 export class RolesModule { }

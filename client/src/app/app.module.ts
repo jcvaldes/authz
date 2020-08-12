@@ -13,6 +13,7 @@ import { AuthModule } from './auth/auth.module';
 import { RolesModule } from './pages/admin/roles/roles.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/interceptors/token.interceptor';
+import { UsersModule } from './components/users/users.module';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,12 @@ import { TokenInterceptor } from './services/interceptors/token.interceptor';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    UserDetailComponent,
-    UserListComponent,
   ],
   imports: [
     BrowserModule,
     AuthModule,
     RolesModule,
+    UsersModule,
     AppRoutingModule,
     HttpClientModule
   ],

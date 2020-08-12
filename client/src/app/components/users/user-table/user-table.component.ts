@@ -1,18 +1,19 @@
-import { environment } from '../../../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { HttpService } from '../../../../services/http.service';
-import { Role } from '../role.model';
+import { HttpService } from '../../../services/http.service';
+import { User } from '../users.model';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-role-table',
-  templateUrl: './role-table.component.html'
+  selector: 'app-user-table',
+  templateUrl: './user-table.component.html'
 })
-export class RoleTableComponent implements OnInit {
-  @Output() roleEdited = new EventEmitter();
-  roles: Role[];
+export class UserTableComponent implements OnInit {
+  @Output() userEdited = new EventEmitter();
 
-  url = `${environment.apiUrl}/api/role`;
+  users: User[];
+
+  url = `${environment.apiUrl}/api/user`;
   constructor(private httpService: HttpService) {}
 
   ngOnInit(): void {
@@ -20,12 +21,12 @@ export class RoleTableComponent implements OnInit {
   }
   initialize(): void {
     this.httpService.get(this.url)
-    .subscribe((roles: any) => {
-      this.roles = roles;
+    .subscribe((users: any) => {
+      this.users = users;
     });
   }
   onEdit(id): void {
-    this.roleEdited.emit(id);
+    this.userEdited.emit(id);
   }
   onDelete(id): void {
     const url = `${this.url}/${id}`;

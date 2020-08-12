@@ -1,11 +1,11 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "postgres",
+    "username": "root",
+    "password": "cris9430",
     "database": "authz_development",
     "host": "127.0.0.1",
-    "port": 5437,
-    "dialect": "postgres",
+    "port": 3306,
+    "dialect": "mysql",
     "logging": true
   },
   "test": {
