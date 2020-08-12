@@ -32,9 +32,7 @@ export class RoleListComponent implements OnInit {
     // this.ngOnInit();
   }
   handleRoleEdited(evt): void {
-    debugger
     this.roleDetail.onEdit(evt);
-    // this.roleId = evt;
   }
 
 }

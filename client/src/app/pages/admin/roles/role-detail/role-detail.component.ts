@@ -1,11 +1,10 @@
 import { environment } from './../../../../../environments/environment';
 import { Component, OnInit, OnDestroy, Output, Input, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms'; 
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpService } from '../../../../services/http.service';
 import { Subject, Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
 import * as _ from 'lodash';
-import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-role-detail',
   templateUrl: './role-detail.component.html',
@@ -17,7 +16,7 @@ export class RoleDetailComponent implements OnInit, OnDestroy {
   @Output() roleSubmited = new EventEmitter();
   form: FormGroup;
   url = `${environment.apiUrl}/api/role`;
-  roleSubs  = new Subject<void>();
+  roleSubs: Subscription;
 
   constructor(private httpService: HttpService) { }
 
@@ -25,7 +24,7 @@ export class RoleDetailComponent implements OnInit, OnDestroy {
     this.createFormGroup();
   }
   ngOnDestroy(): void {
-   // this.roleSubs.unsubscribe();
+    this.roleSubs.unsubscribe();
   }
   createFormGroup(): void {
     this.form = new FormGroup({
@@ -38,16 +37,17 @@ export class RoleDetailComponent implements OnInit, OnDestroy {
     this.form.reset();
   }
   onSubmit(): void {
+    debugger
     const payload = this.form.value;
     if ( !this.form.get('id').value) {
-     this.httpService.post(this.url, payload).pipe(takeUntil(this.roleSubs)).subscribe(resp => {
+      this.roleSubs = this.httpService.post(this.url, payload).subscribe(resp => {
         this.onClear();
         this.roleSubmited.emit(resp);
         Swal.fire('Atención', 'El rol ha sido creado', 'success');
       });
     } else {
       const url = `${this.url}/${this.form.get('id').value}`;
-      this.httpService.put(url, payload).pipe(takeUntil(this.roleSubs)).subscribe(resp => {
+      this.roleSubs = this.httpService.put(url, payload).subscribe(resp => {
         this.onClear();
         this.roleSubmited.emit(resp);
         Swal.fire('Atención', 'El rol ha sido actualizado', 'success');

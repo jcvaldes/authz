@@ -39,6 +39,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatRadioModule } from '@angular/material/radio';
 import es from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 registerLocaleData(es);
 const modules = [
   MatCheckboxModule,
@@ -101,6 +103,7 @@ export const MY_FORMATS = {
     { provide: LOCALE_ID, useValue: 'es-ES' },
     { provide: MAT_DATE_LOCALE, useValue: 'es-AR' },
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
-  ]
+  ],
+  declarations: [NavbarComponent, SidebarComponent]
 })
 export class MaterialModule { }
